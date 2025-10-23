@@ -8,7 +8,9 @@ import HomeButton from "@/components/HomeButton";
 export default function CreatePage() {
   // * Begin Activity 2a
   //TODO: Create a set of hooks for the title, description, and owner
-
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [owner, setOwner] = useState("");
   // * End Activity
 
   const [options, setOptions] = useState([""]);
@@ -51,7 +53,36 @@ export default function CreatePage() {
       <form onSubmit={handleSubmit} className={styles.formContainer}>
         <h1 className={styles.pollTitle}>Create Poll</h1>
         {/* ACTIVITY 2b STARTS */}
-
+        <div>
+          <label htmlFor="titleInput">Title:</label>
+          <input
+            id="titleInput"
+            className={styles.textInput}
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div htmlFor="descriptionInput">
+          <label>Description:</label>
+          <input
+            id="descriptionInput"
+            className={styles.textInput}
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div htmlFor="ownerInput">
+          <label>Owner:</label>
+          <input
+            id="ownerInput"
+            className={styles.textInput}
+            type="text"
+            value={owner}
+            onChange={(e) => setOwner(e.target.value)}
+          />
+        </div>
         {/**
          * //TODO: Create an input box for the title, description, and owner of the poll
          * One way of displaying it is:
